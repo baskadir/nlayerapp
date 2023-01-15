@@ -35,7 +35,7 @@ public class RepoServiceModule : Module
         builder.RegisterAssemblyTypes(apiAssembly, repoAssembly, serviceAssembly)
             .Where(x => x.Name.EndsWith("Service")).AsImplementedInterfaces().InstancePerLifetimeScope();
 
-        builder.RegisterType<ProductServiceCache>().As<IProductService>();
+        // builder.RegisterType<ProductServiceCache>().As<IProductService>();
 
         // InstancePerLifetimeScope => Scope
         // InstancePerDependency => Transient
