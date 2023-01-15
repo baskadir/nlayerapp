@@ -59,7 +59,7 @@ public class ProductsController : CustomBaseController
     }
 
     [HttpDelete("{id}")]
-    public async Task<IActionResult> Update(int id)
+    public async Task<IActionResult> Remove(int id)
     {
         Product product = await _productService.GetByIdAsync(id);
         await _productService.RemoveAsync(product);

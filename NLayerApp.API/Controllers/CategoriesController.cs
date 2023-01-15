@@ -60,7 +60,7 @@ public class CategoriesController : CustomBaseController
     }
 
     [HttpDelete("{id}")]
-    public async Task<IActionResult> Update(int id)
+    public async Task<IActionResult> Remove(int id)
     {
         Category category = await _categoryService.GetByIdAsync(id);
         await _categoryService.RemoveAsync(category);
