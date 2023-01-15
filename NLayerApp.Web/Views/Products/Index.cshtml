@@ -1,0 +1,38 @@
+﻿@model List<ProductWithCategoryDto>
+
+@{
+    ViewData["Title"] = "Index";
+}
+
+<a class="btn btn-info" asp-controller="Products" asp-action="Save">Save New Product</a>
+
+<table class="table table-striped mt-2">
+	<thead>
+		<tr>
+			<td>Id</td>
+			<td>Name</td>
+			<td>Price</td>
+			<td>Stock</td>
+			<td>Category</td>
+			<td>CreaedDate</td>
+			<td>Actions</td>
+		</tr>
+	</thead>
+	<tbody>
+		@foreach (var item in Model)
+		{
+			<tr>
+				<td>@item.Id</td>
+				<td>@item.Name</td>
+				<td>@item.Price</td>
+				<td>@item.Stock</td>
+				<td>@item.Category?.Name</td>
+				<td>@item.CreatedDate</td>
+				<td>
+					<a class="btn btn-sm btn-warning" asp-route-id="@item.Id" asp-controller="Products" asp-action="Update">Update</a>
+					<a class="btn btn-sm btn-danger" asp-route-id="@item.Id" asp-controller="Products" asp-action="Remove">Delete</a>
+				</td>
+			</tr>
+		}
+	</tbody>
+</table>
